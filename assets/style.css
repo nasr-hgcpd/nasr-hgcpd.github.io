@@ -48,8 +48,8 @@ svg { width: 1.1em; height: 1.1em; }
 
 .hero-metrics { max-width: 890px; margin: 42px auto 0; }
 .metric-context { margin: 0; color: var(--blue-dark); font-size: 11px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
-.metric-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 17px; border-block: 1px solid var(--line); }
-.hero-metric { min-width: 0; padding: 21px 18px 19px; border-right: 1px solid var(--line); text-align: left; }
+.metric-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 17px; border: 1px solid #cbdbe5; background: var(--white); }
+.hero-metric { display: flex; min-width: 0; min-height: 150px; flex-direction: column; justify-content: center; padding: 21px 18px 19px; border-right: 1px solid #cbdbe5; text-align: center; }
 .hero-metric:last-child { border-right: 0; }
 .hero-metric strong { display: block; color: var(--blue-dark); font-family: Georgia, "Times New Roman", serif; font-size: clamp(34px, 4vw, 46px); font-weight: 400; line-height: 1.05; letter-spacing: -.04em; white-space: nowrap; }
 .hero-metric strong.metric-gain { font-size: clamp(25px, 2.8vw, 34px); }
@@ -145,7 +145,7 @@ svg { width: 1.1em; height: 1.1em; }
   .hero-metrics { margin-top: 36px; }
   .metric-context { font-size: 10px; line-height: 1.5; }
   .metric-strip { grid-template-columns: 1fr; margin-top: 13px; }
-  .hero-metric { padding: 15px 4px; border-right: 0; border-bottom: 1px solid var(--line); text-align: center; }
+  .hero-metric { min-height: 0; padding: 20px 10px; border-right: 0; border-bottom: 1px solid #cbdbe5; }
   .hero-metric:last-child { border-bottom: 0; }
   .hero-metric strong { font-size: 34px; }
   .hero-metric strong.metric-gain { font-size: 28px; }
