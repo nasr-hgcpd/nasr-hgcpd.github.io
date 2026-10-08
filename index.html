@@ -7,7 +7,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Clean-Prior Distillation and Noise-Adaptive Structural Restoration for Point Cloud Denoising">
     <meta property="og:description" content="Clean structural priors and noise-adaptive updates for point cloud denoising.">
-    <meta property="og:image" content="https://nasr-hgcpd.github.io/assets/horse_six_methods_horizontal_turntable.gif">
+    <meta property="og:image" content="https://nasr-hgcpd.github.io/assets/fig2_overall_framework.png">
     <meta property="og:url" content="https://nasr-hgcpd.github.io/">
     <link rel="canonical" href="https://nasr-hgcpd.github.io/">
     <meta name="theme-color" content="#eef4f7">
@@ -15,6 +15,7 @@
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="./assets/style.css">
     <script src="./assets/gallery.js" defer></script>
+    <script src="./assets/motion.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -75,14 +76,48 @@
           <div class="section-heading centered">
             <p class="section-kicker">Qualitative comparison</p>
             <h2 id="results-title">Denoising in motion</h2>
-            <p>The noisy input, four denoising methods, and ground truth shown from a rotating viewpoint.</p>
+            <p>Compare the noisy input, five denoising methods, and ground truth in four rotating examples.</p>
           </div>
-          <figure class="comparison-figure">
-            <div class="figure-scroll" role="region" aria-label="Animated comparison of six point cloud versions; scroll horizontally on small screens" tabindex="0">
-              <img src="./assets/horse_six_methods_horizontal_turntable.gif" width="2304" height="430" alt="Rotating horse comparison in six columns: Noisy, IterativePFN, P2P, PGD, Ours, and GT.">
+          <div class="motion-toolbar">
+            <div class="motion-scenes" role="group" aria-label="Choose a rotating example">
+              <button type="button" class="is-active" data-motion-scene="cow" aria-pressed="true">Cow</button>
+              <button type="button" data-motion-scene="duck" aria-pressed="false">Duck</button>
+              <button type="button" data-motion-scene="eight" aria-pressed="false">Eight</button>
+              <button type="button" data-motion-scene="elephant" aria-pressed="false">Elephant</button>
             </div>
-            <figcaption><span>Horse example: Noisy · IterativePFN · P2P · PGD · Ours · GT <span class="mobile-hint">Swipe the image to compare all methods.</span></span><a href="./assets/horse_six_methods_horizontal_turntable.gif" target="_blank" rel="noopener noreferrer">Open full size <span aria-hidden="true">↗</span></a></figcaption>
-          </figure>
+            <button type="button" class="motion-playback">Pause motion</button>
+          </div>
+          <p class="motion-caption" id="motion-caption" aria-live="polite">Cow · rotating comparison</p>
+          <div class="motion-grid" aria-label="Seven rotating point cloud versions of the selected example">
+            <figure class="motion-card" data-motion-method="noisy">
+              <figcaption>Noisy input</figcaption>
+              <video src="./assets/motion/cow/noisy.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Cow noisy input rotating"></video>
+            </figure>
+            <figure class="motion-card" data-motion-method="iterativepfn">
+              <figcaption>IterativePFN</figcaption>
+              <video src="./assets/motion/cow/iterativepfn.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Cow denoised by IterativePFN rotating"></video>
+            </figure>
+            <figure class="motion-card" data-motion-method="asdn">
+              <figcaption>ASDN</figcaption>
+              <video src="./assets/motion/cow/asdn.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Cow denoised by ASDN rotating"></video>
+            </figure>
+            <figure class="motion-card" data-motion-method="p2p">
+              <figcaption>P2P</figcaption>
+              <video src="./assets/motion/cow/p2p.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Cow denoised by P2P rotating"></video>
+            </figure>
+            <figure class="motion-card" data-motion-method="baseline">
+              <figcaption>Baseline</figcaption>
+              <video src="./assets/motion/cow/baseline.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Cow baseline denoising rotating"></video>
+            </figure>
+            <figure class="motion-card motion-card-ours" data-motion-method="ours">
+              <figcaption>Ours</figcaption>
+              <video src="./assets/motion/cow/ours.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Cow denoised by our method rotating"></video>
+            </figure>
+            <figure class="motion-card" data-motion-method="gt">
+              <figcaption>Ground truth</figcaption>
+              <video src="./assets/motion/cow/gt.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Cow ground truth rotating"></video>
+            </figure>
+          </div>
         </div>
       </section>
 
