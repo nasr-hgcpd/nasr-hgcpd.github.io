@@ -46,6 +46,18 @@ svg { width: 1.1em; height: 1.1em; }
 .button-secondary { color: var(--ink); background: var(--white); border-color: #d9e1ed; }
 .button-secondary:hover { background: var(--wash); }
 
+.hero-metrics { max-width: 890px; margin: 42px auto 0; }
+.metric-context { margin: 0; color: var(--blue-dark); font-size: 11px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.metric-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 17px; border-block: 1px solid var(--line); }
+.hero-metric { min-width: 0; padding: 21px 18px 19px; border-right: 1px solid var(--line); text-align: left; }
+.hero-metric:last-child { border-right: 0; }
+.hero-metric strong { display: block; color: var(--blue-dark); font-family: Georgia, "Times New Roman", serif; font-size: clamp(34px, 4vw, 46px); font-weight: 400; line-height: 1.05; letter-spacing: -.04em; white-space: nowrap; }
+.hero-metric strong.metric-gain { font-size: clamp(25px, 2.8vw, 34px); }
+.metric-gain span { color: #9bb0c9; font-size: .75em; }
+.hero-metric > span { display: block; margin-top: 9px; font-size: 13px; font-weight: 750; }
+.hero-metric small { display: block; margin-top: 5px; color: var(--muted); font-size: 11px; line-height: 1.4; }
+.metric-note { margin: 15px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+
 .results-section { background: var(--wash); border-block: 1px solid var(--line); }
 .results-inner { padding-block: 85px 91px; }
 .section-heading { max-width: 760px; }
@@ -130,6 +142,13 @@ svg { width: 1.1em; height: 1.1em; }
   .brand-mark { width: 32px; height: 32px; }
   .hero { padding-block: 66px 72px; }
   .hero h1 { font-size: clamp(34px, 8vw, 45px); }
+  .hero-metrics { margin-top: 36px; }
+  .metric-context { font-size: 10px; line-height: 1.5; }
+  .metric-strip { grid-template-columns: 1fr; margin-top: 13px; }
+  .hero-metric { padding: 15px 4px; border-right: 0; border-bottom: 1px solid var(--line); text-align: center; }
+  .hero-metric:last-child { border-bottom: 0; }
+  .hero-metric strong { font-size: 34px; }
+  .hero-metric strong.metric-gain { font-size: 28px; }
   .results-inner, .section { padding-block: 68px; }
   .comparison-figure { margin-top: 30px; }
   .comparison-figure figcaption { display: block; }

@@ -47,6 +47,27 @@
           </a>
           <a class="button button-secondary" href="#results">View results <span aria-hidden="true">↓</span></a>
         </div>
+        <div class="hero-metrics" aria-label="PUNet 50K quantitative results at 2.5% Gaussian noise">
+          <p class="metric-context">PUNet · 50,000 points · 2.5% Gaussian noise</p>
+          <div class="metric-strip">
+            <div class="hero-metric">
+              <strong>0.750</strong>
+              <span>Chamfer distance (CD)</span>
+              <small>Ours · lower is better</small>
+            </div>
+            <div class="hero-metric">
+              <strong>0.505</strong>
+              <span>Point-to-mesh (P2M)</span>
+              <small>Ours · lower is better</small>
+            </div>
+            <div class="hero-metric">
+              <strong class="metric-gain">14.9% <span>/</span> 16.3%</strong>
+              <span>lower CD / P2M</span>
+              <small>compared with GPD in the paper</small>
+            </div>
+          </div>
+          <p class="metric-note">CD and P2M are reported in 10<sup>−4</sup> units. GPD: 0.881 CD / 0.604 P2M.</p>
+        </div>
       </section>
 
       <section class="results-section" id="results" aria-labelledby="results-title">
