@@ -1,70 +1,58 @@
 (() => {
-  const scenes = { cow: 'Cow', duck: 'Duck', eight: 'Eight', elephant: 'Elephant' };
-  const descriptions = {
-    noisy: 'noisy input',
-    iterativepfn: 'denoised by IterativePFN',
-    asdn: 'denoised by ASDN',
-    p2p: 'denoised by P2P',
-    baseline: 'baseline denoising',
-    ours: 'denoised by our method',
-    gt: 'ground truth'
-  };
-  const buttons = [...document.querySelectorAll('[data-motion-scene]')];
-  const cards = [...document.querySelectorAll('[data-motion-method]')];
-  const grid = document.querySelector('.motion-grid');
-  const caption = document.getElementById('motion-caption');
+  const board = document.querySelector('.motion-board');
+  const videos = [...document.querySelectorAll('.motion-row video')];
+  const replay = document.querySelector('.motion-replay');
   const playback = document.querySelector('.motion-playback');
-  if (!grid || !caption || !playback) return;
+  if (!board || !videos.length || !replay || !playback) return;
 
-  let currentScene = 'cow';
+  const visible = new Set();
   let paused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let visible = false;
+
+  function playVideo(video) {
+    if (!video.paused) return;
+    const peer = [...video.closest('.motion-row').querySelectorAll('video')]
+      .find(other => other !== video && !other.paused && other.readyState >= 1);
+    if (peer && video.readyState >= 1 && Number.isFinite(video.duration)) {
+      video.currentTime = peer.currentTime % video.duration;
+    }
+    video.play().catch(() => {});
+  }
 
   function syncPlayback() {
-    for (const card of cards) {
-      const video = card.querySelector('video');
-      if (paused || !visible) video.pause();
-      else video.play().catch(() => {});
+    for (const video of videos) {
+      if (paused || !visible.has(video)) video.pause();
+      else playVideo(video);
     }
   }
 
-  function showScene(scene) {
-    if (!Object.hasOwn(scenes, scene) || scene === currentScene) return;
-    currentScene = scene;
-    caption.textContent = `${scenes[scene]} · rotating comparison`;
-    for (const button of buttons) {
-      const active = button.dataset.motionScene === scene;
-      button.classList.toggle('is-active', active);
-      button.setAttribute('aria-pressed', String(active));
-    }
-    for (const card of cards) {
-      const method = card.dataset.motionMethod;
-      const video = card.querySelector('video');
-      video.pause();
-      video.src = `./assets/motion/${scene}/${method}.mp4`;
-      video.setAttribute('aria-label', `${scenes[scene]} ${descriptions[method]} rotating`);
-      video.load();
-    }
-    syncPlayback();
-  }
-
-  for (const button of buttons) {
-    button.addEventListener('click', () => showScene(button.dataset.motionScene));
-  }
   playback.addEventListener('click', () => {
     paused = !paused;
     playback.textContent = paused ? 'Play motion' : 'Pause motion';
     syncPlayback();
   });
+
+  replay.addEventListener('click', () => {
+    for (const video of videos) {
+      if (video.readyState >= 1) video.currentTime = 0;
+    }
+    paused = false;
+    playback.textContent = 'Pause motion';
+    syncPlayback();
+  });
+
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => {
-      visible = entries[0].isIntersecting;
+      for (const entry of entries) {
+        if (entry.isIntersecting) visible.add(entry.target);
+        else visible.delete(entry.target);
+      }
       syncPlayback();
-    }, { rootMargin: '250px 0px' });
-    observer.observe(grid);
+    }, { threshold: 0.1 });
+    for (const video of videos) observer.observe(video);
   } else {
-    visible = true;
+    for (const video of videos) visible.add(video);
     syncPlayback();
   }
+
   if (paused) playback.textContent = 'Play motion';
 })();

@@ -73,50 +73,72 @@
 
       <section class="results-section" id="results" aria-labelledby="results-title">
         <div class="container results-inner">
-          <div class="section-heading centered">
-            <p class="section-kicker">Qualitative comparison</p>
-            <h2 id="results-title">Denoising in motion</h2>
-            <p>Compare the noisy input, five denoising methods, and ground truth in four rotating examples.</p>
-          </div>
-          <div class="motion-toolbar">
-            <div class="motion-scenes" role="group" aria-label="Choose a rotating example">
-              <button type="button" class="is-active" data-motion-scene="cow" aria-pressed="true">Cow</button>
-              <button type="button" data-motion-scene="duck" aria-pressed="false">Duck</button>
-              <button type="button" data-motion-scene="eight" aria-pressed="false">Eight</button>
-              <button type="button" data-motion-scene="elephant" aria-pressed="false">Elephant</button>
+          <div class="motion-heading">
+            <div class="section-heading">
+              <p class="section-kicker">Qualitative comparison</p>
+              <h2 id="results-title">Denoising in motion</h2>
+              <p>Compare the noisy input, five denoising methods, and ground truth across four rotating examples.</p>
             </div>
-            <button type="button" class="motion-playback">Pause motion</button>
+            <div class="motion-actions">
+              <button type="button" class="motion-replay">Replay all</button>
+              <button type="button" class="motion-playback">Pause motion</button>
+            </div>
           </div>
-          <p class="motion-caption" id="motion-caption" aria-live="polite">Cow · rotating comparison</p>
-          <div class="motion-grid" aria-label="Seven rotating point cloud versions of the selected example">
-            <figure class="motion-card" data-motion-method="noisy">
-              <figcaption>Noisy input</figcaption>
-              <video src="./assets/motion/cow/noisy.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Cow noisy input rotating"></video>
-            </figure>
-            <figure class="motion-card" data-motion-method="iterativepfn">
-              <figcaption>IterativePFN</figcaption>
-              <video src="./assets/motion/cow/iterativepfn.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Cow denoised by IterativePFN rotating"></video>
-            </figure>
-            <figure class="motion-card" data-motion-method="asdn">
-              <figcaption>ASDN</figcaption>
-              <video src="./assets/motion/cow/asdn.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Cow denoised by ASDN rotating"></video>
-            </figure>
-            <figure class="motion-card" data-motion-method="p2p">
-              <figcaption>P2P</figcaption>
-              <video src="./assets/motion/cow/p2p.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Cow denoised by P2P rotating"></video>
-            </figure>
-            <figure class="motion-card" data-motion-method="baseline">
-              <figcaption>Baseline</figcaption>
-              <video src="./assets/motion/cow/baseline.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Cow baseline denoising rotating"></video>
-            </figure>
-            <figure class="motion-card motion-card-ours" data-motion-method="ours">
-              <figcaption>Ours</figcaption>
-              <video src="./assets/motion/cow/ours.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Cow denoised by our method rotating"></video>
-            </figure>
-            <figure class="motion-card" data-motion-method="gt">
-              <figcaption>Ground truth</figcaption>
-              <video src="./assets/motion/cow/gt.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Cow ground truth rotating"></video>
-            </figure>
+          <div class="motion-board-title">
+            <h3>Rotating examples</h3>
+            <p>Scroll sideways to compare every method.</p>
+          </div>
+          <div class="motion-board" role="region" aria-label="Four rotating examples compared across seven methods; scroll horizontally to see every method" tabindex="0">
+            <div class="motion-board-head" aria-hidden="true">
+              <span class="motion-head-label">Shape</span>
+              <span>Noisy</span>
+              <span>IterativePFN</span>
+              <span>ASDN</span>
+              <span>P2P</span>
+              <span>Baseline</span>
+              <span class="motion-head-ours">Ours</span>
+              <span>Ground truth</span>
+            </div>
+            <div class="motion-row" aria-label="Cow comparison">
+              <div class="motion-row-label">Cow</div>
+              <div class="motion-media"><video src="./assets/motion/cow/noisy.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Cow noisy input rotating"></video></div>
+              <div class="motion-media"><video src="./assets/motion/cow/iterativepfn.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Cow denoised by IterativePFN rotating"></video></div>
+              <div class="motion-media"><video src="./assets/motion/cow/asdn.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Cow denoised by ASDN rotating"></video></div>
+              <div class="motion-media"><video src="./assets/motion/cow/p2p.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Cow denoised by P2P rotating"></video></div>
+              <div class="motion-media"><video src="./assets/motion/cow/baseline.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Cow baseline denoising rotating"></video></div>
+              <div class="motion-media motion-media-ours"><video src="./assets/motion/cow/ours.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Cow denoised by our method rotating"></video></div>
+              <div class="motion-media"><video src="./assets/motion/cow/gt.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Cow ground truth rotating"></video></div>
+            </div>
+            <div class="motion-row" aria-label="Duck comparison">
+              <div class="motion-row-label">Duck</div>
+              <div class="motion-media"><video src="./assets/motion/duck/noisy.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Duck noisy input rotating"></video></div>
+              <div class="motion-media"><video src="./assets/motion/duck/iterativepfn.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Duck denoised by IterativePFN rotating"></video></div>
+              <div class="motion-media"><video src="./assets/motion/duck/asdn.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Duck denoised by ASDN rotating"></video></div>
+              <div class="motion-media"><video src="./assets/motion/duck/p2p.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Duck denoised by P2P rotating"></video></div>
+              <div class="motion-media"><video src="./assets/motion/duck/baseline.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Duck baseline denoising rotating"></video></div>
+              <div class="motion-media motion-media-ours"><video src="./assets/motion/duck/ours.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Duck denoised by our method rotating"></video></div>
+              <div class="motion-media"><video src="./assets/motion/duck/gt.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Duck ground truth rotating"></video></div>
+            </div>
+            <div class="motion-row" aria-label="Eight comparison">
+              <div class="motion-row-label">Eight</div>
+              <div class="motion-media"><video src="./assets/motion/eight/noisy.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Eight noisy input rotating"></video></div>
+              <div class="motion-media"><video src="./assets/motion/eight/iterativepfn.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Eight denoised by IterativePFN rotating"></video></div>
+              <div class="motion-media"><video src="./assets/motion/eight/asdn.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Eight denoised by ASDN rotating"></video></div>
+              <div class="motion-media"><video src="./assets/motion/eight/p2p.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Eight denoised by P2P rotating"></video></div>
+              <div class="motion-media"><video src="./assets/motion/eight/baseline.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Eight baseline denoising rotating"></video></div>
+              <div class="motion-media motion-media-ours"><video src="./assets/motion/eight/ours.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Eight denoised by our method rotating"></video></div>
+              <div class="motion-media"><video src="./assets/motion/eight/gt.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Eight ground truth rotating"></video></div>
+            </div>
+            <div class="motion-row" aria-label="Elephant comparison">
+              <div class="motion-row-label">Elephant</div>
+              <div class="motion-media"><video src="./assets/motion/elephant/noisy.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Elephant noisy input rotating"></video></div>
+              <div class="motion-media"><video src="./assets/motion/elephant/iterativepfn.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Elephant denoised by IterativePFN rotating"></video></div>
+              <div class="motion-media"><video src="./assets/motion/elephant/asdn.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Elephant denoised by ASDN rotating"></video></div>
+              <div class="motion-media"><video src="./assets/motion/elephant/p2p.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Elephant denoised by P2P rotating"></video></div>
+              <div class="motion-media"><video src="./assets/motion/elephant/baseline.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Elephant baseline denoising rotating"></video></div>
+              <div class="motion-media motion-media-ours"><video src="./assets/motion/elephant/ours.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Elephant denoised by our method rotating"></video></div>
+              <div class="motion-media"><video src="./assets/motion/elephant/gt.mp4" width="640" height="360" muted loop playsinline preload="metadata" aria-label="Elephant ground truth rotating"></video></div>
+            </div>
           </div>
         </div>
       </section>
