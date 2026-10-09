@@ -185,6 +185,270 @@
           <p class="gallery-hint">On a narrow screen, swipe horizontally to see all seven columns.</p>
         </div>
       </section>
+      <section class="section supplementary-section" id="supplementary" aria-labelledby="supplementary-title">
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-kicker">Supplementary experiments</p>
+            <h2 id="supplementary-title">PUNet results and validation protocol</h2>
+            <p>The main PUNet comparison and a separate run selected with an independent validation split.</p>
+          </div>
+
+          <div class="supplement-block">
+            <h3>PUNet under Gaussian noise</h3>
+            <p>Mean results on 20 official evaluation shapes at 10K and 50K input points. CD and P2M are reported in 10<sup>−4</sup> units; lower is better.</p>
+            <p class="table-mobile-hint">Swipe the table to see all point counts and noise levels.</p>
+            <div class="table-wrap" role="region" aria-label="Main PUNet results table; scroll horizontally on narrow screens" tabindex="0">
+              <table class="punet-table" aria-label="Main PUNet results under Gaussian noise">
+                <thead>
+                  <tr><th scope="col" rowspan="3">Method</th><th scope="colgroup" colspan="6">10K points</th><th scope="colgroup" colspan="6">50K points</th></tr>
+                  <tr><th scope="colgroup" colspan="2">1% noise</th><th scope="colgroup" colspan="2">2% noise</th><th scope="colgroup" colspan="2">2.5% noise</th><th scope="colgroup" colspan="2">1% noise</th><th scope="colgroup" colspan="2">2% noise</th><th scope="colgroup" colspan="2">2.5% noise</th></tr>
+                  <tr>
+                <th scope="col">CD ↓</th><th scope="col">P2M ↓</th>
+                <th scope="col">CD ↓</th><th scope="col">P2M ↓</th>
+                <th scope="col">CD ↓</th><th scope="col">P2M ↓</th>
+                <th scope="col">CD ↓</th><th scope="col">P2M ↓</th>
+                <th scope="col">CD ↓</th><th scope="col">P2M ↓</th>
+                <th scope="col">CD ↓</th><th scope="col">P2M ↓</th>
+                  </tr>
+                </thead>
+                <tbody>
+              <tr>
+                <th scope="row">PCN</th>
+                <td>3.686</td>
+                <td>1.599</td>
+                <td>7.926</td>
+                <td>4.759</td>
+                <td>10.486</td>
+                <td>6.987</td>
+                <td>1.103</td>
+                <td>0.646</td>
+                <td>1.978</td>
+                <td>1.370</td>
+                <td>3.203</td>
+                <td>2.486</td>
+              </tr>
+              <tr>
+                <th scope="row">GPDNet</th>
+                <td>2.310</td>
+                <td>0.714</td>
+                <td>4.284</td>
+                <td>1.855</td>
+                <td>5.837</td>
+                <td>3.066</td>
+                <td>1.049</td>
+                <td>0.635</td>
+                <td>3.288</td>
+                <td>2.503</td>
+                <td>5.085</td>
+                <td>4.134</td>
+              </tr>
+              <tr>
+                <th scope="row">DMR</th>
+                <td>4.712</td>
+                <td>2.196</td>
+                <td>5.085</td>
+                <td>2.523</td>
+                <td>5.277</td>
+                <td>2.669</td>
+                <td>1.205</td>
+                <td>0.762</td>
+                <td>1.443</td>
+                <td>0.970</td>
+                <td>1.696</td>
+                <td>1.190</td>
+              </tr>
+              <tr>
+                <th scope="row">PointFilter</th>
+                <td>2.461</td>
+                <td>0.730</td>
+                <td>3.534</td>
+                <td>1.155</td>
+                <td>4.099</td>
+                <td>1.505</td>
+                <td>0.758</td>
+                <td>0.432</td>
+                <td>0.907</td>
+                <td>0.507</td>
+                <td>1.099</td>
+                <td>0.629</td>
+              </tr>
+              <tr>
+                <th scope="row">Score</th>
+                <td>2.522</td>
+                <td>0.754</td>
+                <td>3.683</td>
+                <td>1.380</td>
+                <td>4.232</td>
+                <td>1.904</td>
+                <td>0.716</td>
+                <td>0.400</td>
+                <td>1.289</td>
+                <td>0.833</td>
+                <td>1.445</td>
+                <td>0.958</td>
+              </tr>
+              <tr>
+                <th scope="row">PDFlow</th>
+                <td>2.126</td>
+                <td>0.674</td>
+                <td>3.246</td>
+                <td>1.324</td>
+                <td>3.627</td>
+                <td>1.702</td>
+                <td>0.651</td>
+                <td>0.416</td>
+                <td>1.270</td>
+                <td>0.921</td>
+                <td>1.874</td>
+                <td>1.426</td>
+              </tr>
+              <tr>
+                <th scope="row">IterativePFN</th>
+                <td>2.055</td>
+                <td>0.501</td>
+                <td>3.043</td>
+                <td>0.843</td>
+                <td>3.353</td>
+                <td>1.046</td>
+                <td>0.605</td>
+                <td>0.302</td>
+                <td>0.803</td>
+                <td>0.436</td>
+                <td>1.015</td>
+                <td>0.588</td>
+              </tr>
+              <tr>
+                <th scope="row">StraightPCF</th>
+                <td>1.904</td>
+                <td>0.545</td>
+                <td>2.672</td>
+                <td>0.929</td>
+                <td>2.925</td>
+                <td>1.120</td>
+                <td>0.620</td>
+                <td>0.389</td>
+                <td>0.811</td>
+                <td>0.551</td>
+                <td>0.987</td>
+                <td>0.668</td>
+              </tr>
+              <tr>
+                <th scope="row">PD-LTS</th>
+                <td>1.825</td>
+                <td>0.496</td>
+                <td>2.567</td>
+                <td>0.824</td>
+                <td>2.849</td>
+                <td>1.034</td>
+                <td>0.496</td>
+                <td>0.306</td>
+                <td>0.706</td>
+                <td>0.447</td>
+                <td>0.936</td>
+                <td>0.605</td>
+              </tr>
+              <tr>
+                <th scope="row">P2P-Bridge</th>
+                <td>2.284</td>
+                <td>0.686</td>
+                <td>3.202</td>
+                <td>1.114</td>
+                <td>3.531</td>
+                <td>1.386</td>
+                <td>0.586</td>
+                <td>0.330</td>
+                <td>0.902</td>
+                <td>0.580</td>
+                <td>1.165</td>
+                <td>0.803</td>
+              </tr>
+              <tr>
+                <th scope="row">3DMambaIPF</th>
+                <td>1.989</td>
+                <td>0.477</td>
+                <td>2.995</td>
+                <td>0.803</td>
+                <td>3.262</td>
+                <td>0.992</td>
+                <td>0.589</td>
+                <td>0.291</td>
+                <td>0.755</td>
+                <td>0.405</td>
+                <td>0.928</td>
+                <td><span class="second-best">0.531</span></td>
+              </tr>
+              <tr>
+                <th scope="row">ASDN</th>
+                <td>1.836</td>
+                <td>0.490</td>
+                <td>2.508</td>
+                <td>0.776</td>
+                <td>2.697</td>
+                <td>0.961</td>
+                <td>0.498</td>
+                <td>0.308</td>
+                <td>0.686</td>
+                <td>0.448</td>
+                <td><span class="second-best">0.850</span></td>
+                <td>0.575</td>
+              </tr>
+              <tr>
+                <th scope="row">GPD</th>
+                <td><span class="second-best">1.797</span></td>
+                <td><span class="second-best">0.469</span></td>
+                <td><span class="second-best">2.430</span></td>
+                <td><span class="second-best">0.729</span></td>
+                <td><span class="second-best">2.626</span></td>
+                <td><span class="second-best">0.904</span></td>
+                <td><span class="second-best">0.479</span></td>
+                <td><strong>0.286</strong></td>
+                <td><span class="second-best">0.615</span></td>
+                <td><span class="second-best">0.404</span></td>
+                <td>0.881</td>
+                <td>0.604</td>
+              </tr>
+              <tr class="ours-row">
+                <th scope="row">Ours</th>
+                <td><strong>1.776</strong></td>
+                <td><strong>0.463</strong></td>
+                <td><strong>2.408</strong></td>
+                <td><strong>0.713</strong></td>
+                <td><strong>2.619</strong></td>
+                <td><strong>0.898</strong></td>
+                <td><strong>0.461</strong></td>
+                <td><span class="second-best">0.287</span></td>
+                <td><strong>0.603</strong></td>
+                <td><strong>0.398</strong></td>
+                <td><strong>0.750</strong></td>
+                <td><strong>0.505</strong></td>
+              </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="table-note">Best results are bold; second-best results are underlined. Competitor entries are literature or previously recorded benchmark aggregates under their original protocols. Ours is evaluated from the reported local checkpoint; the appendix reports matched local comparisons.</p>
+          </div>
+
+          <div class="supplement-block validation-block">
+            <h3>Independent-validation retraining</h3>
+            <p>In the main run, the learning-rate scheduler used CD measured on the 20 official PUNet evaluation geometries. Those geometries also appear in the table above, so the main evaluation was not fully held out from training control.</p>
+            <p>We separately retrained the complete model from scratch on 32 of the 40 PUNet training shapes, reserving eight other training shapes for validation. The epoch-359 checkpoint was selected by held-out validation CD, without feedback from the 20 official test shapes, and evaluated across the same six test conditions.</p>
+            <div class="table-wrap validation-table-wrap" role="region" aria-label="Independent-validation PUNet test results; scroll horizontally on narrow screens" tabindex="0">
+              <table class="punet-table validation-table" aria-label="PUNet results after independent-validation retraining">
+                <thead>
+                  <tr><th scope="col" rowspan="2">Noise</th><th scope="colgroup" colspan="2">10K points</th><th scope="colgroup" colspan="2">50K points</th></tr>
+                  <tr><th scope="col">CD ↓</th><th scope="col">P2M ↓</th><th scope="col">CD ↓</th><th scope="col">P2M ↓</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">1%</th><td>1.780</td><td>0.465</td><td>0.470</td><td>0.293</td></tr>
+                  <tr><th scope="row">2%</th><td>2.422</td><td>0.724</td><td>0.613</td><td>0.403</td></tr>
+                  <tr><th scope="row">2.5%</th><td>2.613</td><td>0.894</td><td>0.748</td><td>0.506</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="table-note">Each value averages the 20 official test shapes, in 10<sup>−4</sup> units. This is a separate training run. The main table and paired GPD comparison retain their original checkpoints and validation protocol.</p>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">

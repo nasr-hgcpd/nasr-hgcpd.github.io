@@ -123,6 +123,34 @@ svg { width: 1.1em; height: 1.1em; }
 .method-gallery figure figcaption { padding: 12px 7px 13px; text-align: center; font-size: 12px; font-weight: 750; color: #4f5e72; }
 .method-gallery figure.ours-card figcaption { color: var(--blue-dark); }
 .gallery-hint { display: none; margin: 10px 0 0; color: var(--blue-dark); font-size: 12px; font-weight: 650; }
+.supplementary-section { border-top: 1px solid var(--line); background: var(--page); }
+.supplementary-section .container { width: min(100% - 48px, 1280px); }
+.supplement-block { margin-top: 42px; }
+.supplement-block + .supplement-block { margin-top: 62px; padding-top: 42px; border-top: 1px solid var(--line); }
+.supplement-block h3 { margin: 0 0 14px; font-size: 27px; line-height: 1.25; letter-spacing: -.035em; }
+.supplement-block > p { max-width: 950px; margin: 0 0 15px; color: #3c485b; font-size: 15px; line-height: 1.7; }
+.supplement-block > p.table-mobile-hint { display: none; }
+.table-wrap { overflow-x: auto; margin-top: 22px; border: 1px solid var(--line); border-radius: 12px; background: var(--white); scrollbar-color: #a8bacb #e5eef3; scrollbar-width: thin; }
+.table-wrap:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.punet-table { width: 100%; min-width: 1200px; border-collapse: separate; border-spacing: 0; font-size: 12px; font-variant-numeric: tabular-nums; }
+.punet-table th, .punet-table td { padding: 10px 8px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+.punet-table thead th { background: #eaf1f5; color: var(--ink); font-weight: 750; text-align: center; }
+.punet-table thead tr:first-child th { border-bottom-color: #c6d5de; }
+.punet-table tbody tr:nth-child(even) { background: #f2f7fa; }
+.punet-table tbody tr.ours-row { background: #e7f1fc; font-weight: 750; }
+.punet-table tbody tr:last-child th, .punet-table tbody tr:last-child td { border-bottom: 0; }
+.punet-table thead tr:first-child > th:first-child, .punet-table tbody tr > th:first-child { position: sticky; left: 0; z-index: 1; min-width: 126px; background: var(--white); text-align: left; }
+.punet-table thead tr:first-child > th:first-child { z-index: 2; background: #eaf1f5; }
+.punet-table tbody tr:nth-child(even) > th:first-child { background: #f2f7fa; }
+.punet-table tbody tr.ours-row > th:first-child { background: #e7f1fc; }
+.punet-table tbody td:nth-child(8) { border-left: 2px solid #bdd1e1; }
+.punet-table strong { color: var(--blue-dark); }
+.punet-table .second-best { text-decoration: underline; text-underline-offset: 2px; }
+.supplement-block > p.table-note { max-width: 1100px; margin-top: 13px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.validation-table-wrap { max-width: 740px; }
+.validation-table { min-width: 620px; font-size: 13px; }
+.validation-table thead tr:first-child > th:first-child, .validation-table tbody tr > th:first-child { min-width: 90px; }
+.validation-table tbody td:nth-child(4) { border-left: 2px solid #bdd1e1; }
 .site-footer { border-top: 1px solid var(--line); }
 .footer-inner { display: flex; justify-content: space-between; gap: 20px; padding-block: 25px; color: #7a8494; font-size: 12px; line-height: 1.6; }
 .footer-inner a { color: #526e96; }
@@ -138,6 +166,7 @@ svg { width: 1.1em; height: 1.1em; }
   .container { width: min(100% - 32px, 1120px); }
   .results-section .container { width: min(100% - 32px, 1280px); }
   .visuals-section .container { width: min(100% - 32px, 1280px); }
+  .supplementary-section .container { width: min(100% - 32px, 1280px); }
   .nav { min-height: 64px; }
   .nav-links { gap: 13px; }
   .nav-links a { font-size: 12px; }
@@ -167,6 +196,10 @@ svg { width: 1.1em; height: 1.1em; }
   .scene-button img { height: 78px; }
   .gallery-heading { display: block; }
   .gallery-heading p { margin-top: 5px; }
+  .supplement-block { margin-top: 32px; }
+  .supplement-block + .supplement-block { margin-top: 45px; padding-top: 32px; }
+  .supplement-block h3 { font-size: 23px; }
+  .supplement-block > p.table-mobile-hint { display: block; margin-top: 16px; margin-bottom: -10px; color: var(--blue-dark); font-size: 12px; font-weight: 650; }
   .footer-inner { display: block; }
   .footer-inner span { display: block; margin-bottom: 4px; }
 }
